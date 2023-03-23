@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POO en javaScript</title>
+</head>
+<body>
+    <script>
+        if (!Object.create) {
+            Object.create = (function(){
+                function F (){}
+
+                return function(O){
+                    if (arguments.length != 1) {
+                        throw new Error('Object.create implementation only accepts on parameter');
+                    }
+                    F.prototype = 0
+                    return new F ()
+                }
+            })()
+        }
+       
+        var animal = {
+            cri : '???',
+            crier : function(){
+                return this.cri;
+            },
+            fourure : {
+                couleur : 'blanc',
+                longueur : 'court' 
+            }
+        }
+        
+        var poney = Object.create(animal);
+        poney.marcher = function(){return 'Cataclop';}
+
+        var chat = Object.create(animal);
+        chat.marcher = function(){return 'ronrond';}
+
+
+        var roger = Object.create(poney);
+        roger.nom = 'Gold Roger';
+
+
+        
+
+         // constuctor
+         /*
+         var animal = function(nom){
+             this.nom = nom;
+         }
+
+        //prototype
+         animal.prototype.pattes = 4;
+         animal.prototype.cri = '???';
+         animal.prototype.crier = function(){
+              return this.cri;
+         }
+         animal.prototype.fourure = {
+             couleur : 'blanc',
+             longueur : 'courte'
+         }
+
+        //instanciation
+         var poney = new animal('raibow dash');
+         poney.pattes = 3;
+
+         var chat = new animal('croquette');
+         */
+
+
+    </script>
+
+
+
+<!-- 
+
+-->
+</body>
+</html>
